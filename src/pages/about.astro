@@ -1,4 +1,8 @@
 ---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
 const pageTitle = "À propos de moi";
 
 const identity = {
@@ -22,6 +26,8 @@ const finished = false;
 const goal = 3;
 
 const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 
 <html lang="fr">
@@ -29,7 +35,7 @@ const skillColor = "navy";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{pageTitle}</title>
-    <style define:vars={{ skillColor }}>
+    <style define:vars={{ skillColor, fontWeight, textCase }}>
       h1 {
         color: purple;
         font-size: 4rem;
@@ -37,14 +43,13 @@ const skillColor = "navy";
 
       .skill {
         color: var(--skillColor);
-        font-weight: bold;
+        font-weight: var(--fontWeight);
+        text-transform: var(--textCase);
       }
     </style>
   </head>
   <body>
-    <a href="/">Accueil</a>
-    <a href="/about/">À propos</a>
-    <a href="/blog/">Blog</a>
+    <Header />
     <h1>{pageTitle}</h1>
     <p>Voici quelques faits me concernant :</p>
     <ul>
@@ -78,5 +83,6 @@ const skillColor = "navy";
         <p>Mon objectif n'est pas de 3 jours.</p>
       )
     }
+    <Footer />
   </body>
 </html>
